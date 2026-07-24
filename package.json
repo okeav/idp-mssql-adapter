@@ -1,0 +1,40 @@
+{
+  "name": "@okeav/idp-core-mssql",
+  "version": "0.1.0",
+  "description": "Microsoft SQL Server storage adapter for @okeav/idp-core.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Okeav",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "mssql": "^12.7.0"
+  },
+  "devDependencies": {
+    "@okeav/idp-core": "file:../identity",
+    "express": "^4.18.0",
+    "cookie-parser": "^1.4.7"
+  },
+  "keywords": [
+    "idp-core",
+    "mssql",
+    "sql-server",
+    "identity-provider",
+    "storage-adapter"
+  ]
+}

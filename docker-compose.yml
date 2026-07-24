@@ -1,0 +1,30 @@
+# Local dev/test stack for @okeav/idp-core-mssql.
+#
+#   docker compose up -d
+#
+# No pure-JS/embeddable SQL Server emulator exists (it's proprietary) — unlike
+# the Postgres and DynamoDB adapters, this package's test suite needs a real
+# SQL Server instance. This is a throwaway dev-only instance; SA_PASSWORD
+# here is not meant for anything beyond local testing.
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: idp-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "IdpCore_Test_Pass123!"
+      MSSQL_PID: "Developer"
+    ports:
+      - "14330:1433"
+    volumes:
+      - idp-mssql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' || /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1'"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 20s
+
+volumes:
+  idp-mssql-data:
