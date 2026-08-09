@@ -1,6 +1,6 @@
 {
   "name": "@okeav/idp-core-mssql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Microsoft SQL Server storage adapter for @okeav/idp-core.",
   "type": "module",
   "license": "MIT",
