@@ -7,12 +7,12 @@
   "author": "Okeav",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adaptiveedge/idp-mssql-adapter.git"
+    "url": "git+https://github.com/okeav/idp-mssql-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/adaptiveedge/idp-mssql-adapter/issues"
+    "url": "https://github.com/okeav/idp-mssql-adapter/issues"
   },
-  "homepage": "https://github.com/adaptiveedge/idp-mssql-adapter#readme",
+  "homepage": "https://github.com/okeav/idp-mssql-adapter#readme",
   "publishConfig": {
     "access": "public"
   },
